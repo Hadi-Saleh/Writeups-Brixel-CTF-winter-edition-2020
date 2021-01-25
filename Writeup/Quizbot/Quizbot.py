@@ -4,9 +4,9 @@ counter =1;
 list = []
 url = 'http://timesink.be/quizbot/'
 req = requests.get(url)
-password = "WrongPassword"
+pass = "WrongAnswer"
 cookies = req.cookies
-data = {"insert_answer":password}
+data = {"insert_answer":pass}
 while counter <=1000:
     req = requests.post(url=url,data=data,cookies = cookies)
     tree = html.fromstring(req.content)
@@ -21,8 +21,8 @@ req = requests.get(url)
 cookies = req.cookies
 counter = 1
 while counter <=1000:
-    password = list[counter-1]
-    data = {"insert_answer": password}
+    pass = list[counter-1]
+    data = {"insert_answer": pass}
     req = requests.post(url=url,data=data,cookies = cookies)
     if counter==1000:
         print(req.content)
